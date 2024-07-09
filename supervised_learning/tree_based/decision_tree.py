@@ -5,7 +5,7 @@ from .decision_node import DecisionNode
 from .utils import unique_counts, split_function, divide_set, entropy, variance, mean
 
 
-class TorchDecisionTreeClassifier(torch.nn.Module):
+class DecisionTreeClassifier(torch.nn.Module):
     """
     Torch decision tree object used to solve classification problem. This object implements the fitting and prediction
     function which can be used with torch tensors. The binary tree is based on
@@ -111,7 +111,7 @@ class TorchDecisionTreeClassifier(torch.nn.Module):
             return self._classify(vector, branch)
 
 
-class TorchDecisionTreeRegressor(torch.nn.Module):
+class DecisionTreeRegressor(torch.nn.Module):
     """
     Torch decision tree object used to solve regression problem. This object implements the fitting and prediction
     function which can be used with torch tensors. The binary tree is based on

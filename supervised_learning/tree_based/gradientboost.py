@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.tree import DecisionTreeRegressor
 
-class AIVNGradientBooster:
+class GradientBoostRegressor:
 
     def __init__(self, max_depth=8, min_samples_split=5, min_samples_leaf=5, max_features=3, lr=0.1, num_iter=50):
         self.max_depth = max_depth

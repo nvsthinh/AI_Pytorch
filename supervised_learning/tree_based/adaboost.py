@@ -37,7 +37,7 @@ def update_weights_formular2(w_i, alpha, y, y_pred):
     return w_norm
 
 # Define AdaBoost class
-class AdaBoostModel:
+class AdaBoostClassifier:
 
     def __init__(self):
         # self.w_i = None
