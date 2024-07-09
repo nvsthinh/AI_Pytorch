@@ -2,6 +2,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class LeNet(nn.Module):
+    """
+    LeNet:
+    - stride = 3 if image_size = 224 x 224
+    - stride = 3 if image_size = 32 x 32
+    """
     def __init__(self, imdim=3, num_classes=10):
         super(LeNet, self).__init__()
 
