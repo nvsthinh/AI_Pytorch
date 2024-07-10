@@ -2,9 +2,9 @@ import torch.nn as nn
 import torch
 
 class SVM(nn.Module):
-    def __init__(self, input_dim, output_dim):
+    def __init__(self, input_dim):
         super(SVM, self).__init__()
-        self.linear = nn.Linear(input_dim, output_dim)
+        self.linear = nn.Linear(input_dim, 1)
 
     def forward(self, x):
         return self.linear(x)
