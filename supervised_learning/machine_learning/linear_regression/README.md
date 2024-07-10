@@ -55,7 +55,7 @@ For a more interactive demonstration, you can open the Jupyter notebook: [Linear
 The directory structure for this repository should be organized as follows:
 
 ```csharp
-machine_learning/
+linear_regression/
 ├── linear_regression.py
 ├── notebook/
 │   └── Linear_Regression_with_PyTorch_on_Sample.ipynb
