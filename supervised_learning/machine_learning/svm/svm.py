@@ -14,5 +14,4 @@ class SVMLoss(nn.modules.Module):
         super(SVMLoss,self).__init__()
     def forward(self, outputs, labels): 
         # Hinge Loss = max(0, 1 - t * y)
-        labels_one_hot = torch.eye(outputs.size(1))[labels].to(outputs.device)
-        return torch.mean(torch.clamp(1 - outputs * labels_one_hot, min=0))
+        return torch.mean(torch.clamp(1 - outputs * labels, min=0))
