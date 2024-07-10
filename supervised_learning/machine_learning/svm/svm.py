@@ -1,19 +1,17 @@
 import torch.nn as nn
 import torch
 
-batch_size = 64
-
-class SVMModel(nn.Module):
-    def __init__(self, n_inputs, n_outputs):
-        super().__init__()
-        self.linear = nn.Linear(n_inputs, n_outputs)
+class SVM(nn.Module):
+    def __init__(self, input_dim):
+        super(SVM, self).__init__()
+        self.linear = nn.Linear(input_dim, 1)
 
     def forward(self, x):
-        output = self.linear(x)
-        return output
+        return self.linear(x)
     
 class SVMLoss(nn.modules.Module):
     def __init__(self):
         super(SVMLoss,self).__init__()
-    def forward(self, outputs, labels):
-         return torch.sum(torch.clamp(1 - outputs.t()*labels, min=0))/batch_size
+    def forward(self, outputs, labels): 
+        # Hinge Loss = max(0, 1 - t * y)
+        return torch.mean(torch.clamp(1 - outputs * labels, min=0))
