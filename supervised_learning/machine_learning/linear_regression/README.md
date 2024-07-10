@@ -10,7 +10,6 @@ This implementation of Linear Regression uses PyTorch to perform gradient descen
 - `linear_regression.py`: Contains the PyTorch implementation of Linear Regression.
 - `notebook/Linear_Regression_with_PyTorch_on_Sample.ipynb`: A Jupyter notebook demonstrating the Linear Regression implementation with detailed explanations and visualizations.
 
-
 ## 3. How to Use
 ### 3.1. Running the Code
 #### Step 1. Clone this repository
@@ -64,5 +63,3 @@ linear_regression/
 ```
 ## 5. License
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/nvsthinh/AI_Pytorch/blob/main/LICENSE) file for details.
-
-
