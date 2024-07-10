@@ -43,7 +43,6 @@ input_dim = X.shape[1]
 output_dim = len(torch.unique(y))
 model = SoftmaxRegressionModel(input_dim, output_dim)
 
-
 # Training the model (not shown in the example, you can see in notebook)
 
 # Making predictions
