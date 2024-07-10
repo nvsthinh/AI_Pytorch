@@ -26,8 +26,7 @@ pip install -r requirements.txt
 
 ### 3.2. Example
 ```bash
-cd AI_Pytorch/supervised_learning/machine_learning
-/linear_regression
+cd AI_Pytorch/supervised_learning/machine_learning/linear_regression
 ```
 Here's a basic example of how to use the Linear Regression implementation:
 
