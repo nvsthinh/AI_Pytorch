@@ -10,7 +10,6 @@ This implementation of Logistic Regression uses PyTorch to perform gradient desc
 - `logistic_regression.py`: Contains the PyTorch implementation of Logistic Regression.
 - `notebook/Logistic_Regression_Model_with_PyTorch_on_MNIST.ipynb`: A Jupyter notebook demonstrating the Logistic Regression implementation with detailed explanations and visualizations.
 
-
 ## 3. How to Use
 ### 3.1. Running the Code
 #### Step 1. Clone this repository
@@ -64,5 +63,3 @@ logistic_regression/
 ```
 ## 5. License
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/nvsthinh/AI_Pytorch/blob/main/LICENSE) file for details.
-
-
