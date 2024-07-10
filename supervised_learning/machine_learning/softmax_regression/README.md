@@ -67,5 +67,5 @@ softmax_regression/
 └── README.md
 ```
 
-## ## 5. License
+## 5. License
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/nvsthinh/AI_Pytorch/blob/main/LICENSE) file for details.
