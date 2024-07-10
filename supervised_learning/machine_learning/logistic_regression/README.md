@@ -36,7 +36,7 @@ from logistic_regression import LogisticRegressionModel
 
 # Sample data
 X = torch.tensor([[1.0], [2.0], [3.0], [4.0], [5.0]])
-y = torch.tensor([[2.0], [4.0], [6.0], [8.0], [10.0]])
+y = torch.tensor([[0.0], [0.0], [1.0], [1.0], [1.0]])
 
 # Model initialization
 model = LogisticRegressionModel(n_inputs=1, n_outputs=1)
