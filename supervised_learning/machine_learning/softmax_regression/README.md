@@ -8,7 +8,7 @@ This implementation of Softmax Regression uses PyTorch to perform gradient desce
 
 ### 2.1. Files
 - `softmax_regression.py`: Contains the PyTorch implementation of Softmax Regression.
-- `notebook/Softmax_Regression_with_PyTorch_on_Sample.ipynb`: A Jupyter notebook demonstrating the Softmax Regression implementation with detailed explanations and visualizations.
+- `notebook/Softmax_Regression_Model_with_PyTorch_on_MNIST.ipynb`: A Jupyter notebook demonstrating the Softmax Regression implementation with detailed explanations and visualizations.
 
 ## 3. How to Use
 
