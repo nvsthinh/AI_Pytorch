@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import torch
 
-from .decision_node import DecisionNode
-from .utils import unique_counts, split_function, divide_set, entropy, variance, mean
+from ..decision_node import DecisionNode
+from ...utils import unique_counts, split_function, divide_set, entropy, variance, mean
 
 
 class DecisionTreeClassifier(torch.nn.Module):
