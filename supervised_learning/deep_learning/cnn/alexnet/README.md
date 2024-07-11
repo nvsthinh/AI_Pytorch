@@ -7,10 +7,8 @@ AlexNet is a convolutional neural network architecture that won the ImageNet Lar
 This implementation of AlexNet uses PyTorch to build and train the neural network.
 
 ### 2.1. Files
-- `lenet.py`: Contains the PyTorch implementation of LeNet.
-- `notebook/LeNet_with_PyTorch_on_MNIST.ipynb`: A Jupyter notebook demonstrating the LeNet implementation with detailed explanations and visualizations.
 - `alexnet.py`: Contains the PyTorch implementation of AlexNet.
-- `notebook/AlexNet_with_PyTorch_on_MNIST.ipynb`: A Jupyter notebook demonstrating the AlexNet implementation with detailed explanations and visualizations.
+- `notebook/AlexNet_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the AlexNet implementation with detailed explanations and visualizations.
 
 ## 3. How to Use
 ### 3.1. Running the Code
