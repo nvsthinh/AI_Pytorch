@@ -7,7 +7,7 @@ Support Vector Machines (SVM) are powerful, supervised learning models used for 
 This implementation of SVM uses PyTorch to perform the necessary computations and optimizations.
 
 ### 2.1. Files
-- `svm.py`: Contains the PyTorch implementation of Support Vector Machine.
+- `svm.py`: Contains the PyTorch implementation of Support Vector Machine and Loss function.
 - `notebook/SVM_Model_with_PyTorch_on_MNIST.ipynb`: A Jupyter notebook demonstrating the SVM implementation with detailed explanations and visualizations.
 
 ## 3. How to Use
