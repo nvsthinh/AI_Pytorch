@@ -1,218 +1,214 @@
-# -*- coding: utf-8 -*-
 import torch
 
-from ..decision_node import DecisionNode
-from ...utils import unique_counts, split_function, divide_set, entropy, variance, mean
-
-
-class DecisionTreeClassifier(torch.nn.Module):
-    """
-    Torch decision tree object used to solve classification problem. This object implements the fitting and prediction
-    function which can be used with torch tensors. The binary tree is based on
-    :class:`tree_based.decision_node.DecisionNode` which are built during the :func:`fit` and called recursively during the
-    :func:`predict`.
-
-    Args:
-        max_depth (:class:`int`): The maximum depth which corresponds to the maximum successive number of
-            :class:`tree_based.decision_node.DecisionNode`.
-
-    """
-    def __init__(self, max_depth=-1):
-        self._root_node = None
-        self.max_depth = max_depth
-
-    def fit(self, vectors, labels, criterion=None):
+class Node:
+    def __init__(self, feature_index=None, threshold=None, left=None, right=None, value=None):
         """
-        Function which must be used after the initialisation to fit the binary tree and build the successive
-        :class:`tree_based.decision_node.DecisionNode` to solve a specific classification problem.
+        Initialize a node in the decision tree.
 
         Args:
-            vectors (:class:`torch.FloatTensor`): Vectors tensor used to fit the decision tree. It represents the data
-                and must correspond to the following shape [num_vectors, num_dimensions].
-            labels (:class:`torch.LongTensor`): Labels tensor used to fit the decision tree. It represents the labels
-                associated to each vectors and must correspond to the following shape [num_vectors].
-            criterion (:class:`function`): Optional function used to optimize the splitting for each
-                :class:`tree_based.decision_node.DecisionNode`. If none given, the entropy function is used.
+        - feature_index (int): Index of the feature for splitting.
+        - threshold (float): Threshold value for splitting the feature.
+        - left (Node): Left child node.
+        - right (Node): Right child node.
+        - value (int): Leaf value (predicted label).
+
+        Note:
+        - If `value` is not None, the node is a leaf node; otherwise, it is an internal node.
         """
-        if len(vectors) < 1:
-            raise ValueError("Not enough samples in the given dataset")
-        if len(vectors) != len(labels):
-            raise ValueError("Labels and data vectors must have the same number of elements")
-        if not criterion:
-            criterion = entropy
+        self.feature_index = feature_index
+        self.threshold = threshold
+        self.left = left
+        self.right = right
+        self.value = value
 
-        self._root_node = self._build_tree(vectors, labels, criterion, self.max_depth)
-
-    def _build_tree(self, vectors, labels, func, depth):
+"""
+Implementation for Decision Tree model
+"""
+class DecisionTree:
+    def __init__(self, depth=10, min_samples_split=2):
         """
-        Private recursive function used to build the tree.
-        """
-        if len(vectors) == 0:
-            return DecisionNode()
-        if depth == 0:
-            return DecisionNode(results=unique_counts(labels))
-
-        current_score = func(labels)
-        best_gain = 0.0
-        best_criteria = None
-        best_sets = None
-        column_count = len(vectors[0])
-
-        for col in range(0, column_count):
-            column_values = {}
-            for vector in vectors:
-                column_values[vector[col]] = 1
-            for value in column_values.keys():
-                vectors_set_1, label_set_1, vectors_set_2, label_set_2 = divide_set(vectors, labels, col, value)
-
-                p = float(len(vectors_set_1)) / len(vectors)
-                gain = current_score - p * func(label_set_1) - (1 - p) * func(label_set_2)
-                if gain > best_gain and len(vectors_set_1) > 0 and len(vectors_set_2) > 0:
-                    best_gain = gain
-                    best_criteria = (col, value)
-                    best_sets = ((vectors_set_1,label_set_1), (vectors_set_2,label_set_2))
-
-        if best_gain > 0:
-            true_branch = self._build_tree(best_sets[0][0], best_sets[0][1], func, depth - 1)
-            false_branch = self._build_tree(best_sets[1][0], best_sets[1][1], func, depth - 1)
-            return DecisionNode(col=best_criteria[0],
-                                value=best_criteria[1],
-                                tb=true_branch, fb=false_branch)
-        else:
-            return DecisionNode(results=unique_counts(labels))
-
-    def predict(self, vector):
-        """
-        Function which must be used after the the fitting of the binary tree. It calls recursively the different
-        :class:`tree_based.decision_node.DecisionNode` to classify the vector.
+        Initialize the Decision Tree model.
 
         Args:
-            vector(:class:`torch.FloatTensor`): Vectors tensor which must be classified. It represents the data
-                and must correspond to the following shape (num_dimensions).
+        - depth (int): Maximum depth of the tree.
+        - min_samples_split (int): Minimum number of samples required to split a node.
+        """
+        self.depth = depth
+        self.min_samples_split = min_samples_split
+        self.tree = {}  # Initialize an empty dictionary to store the decision tree structure
+
+    def fit(self, X, y):
+        """
+        Build the decision tree recursively.
+
+        Args:
+        - X (Tensor): Input features of shape (num_samples, num_features).
+        - y (Tensor): Target labels of shape (num_samples,).
 
         Returns:
-            :class:`torch.LongTensor`: Tensor which corresponds to the label predicted by the binary tree.
-
+        - None
         """
-        return self._classify(vector, self._root_node)
-
-    def _classify(self, vector, node):
+        self.tree = self._build_tree(X, y, depth=0)
+        
+    def _build_tree(self, X, y, depth):
         """
-        Private recursive function used to classify with the tree.
-        """
-        if node.results is not None:
-            return list(node.results.keys())[0]
-        else:
-            if split_function(vector, node.col, node.value):
-                branch = node.tb
-            else:
-                branch = node.fb
-
-            return self._classify(vector, branch)
-
-
-class DecisionTreeRegressor(torch.nn.Module):
-    """
-    Torch decision tree object used to solve regression problem. This object implements the fitting and prediction
-    function which can be used with torch tensors. The binary tree is based on
-    :class:`tree_based.decision_node.DecisionNode` which are built during the :func:`fit` and called recursively during the
-    :func:`predict`.
-
-    Args:
-        max_depth (:class:`int`): The maximum depth which corresponds to the maximum successive number of
-            :class:`tree_based.decision_node.DecisionNode`.
-
-    """
-    def __init__(self, max_depth=-1):
-        self._root_node = None
-        self.max_depth = max_depth
-
-    def fit(self, vectors, values, criterion=None):
-        """
-        Function which must be used after the initialisation to fit the binary tree and build the successive
-        :class:`tree_based.decision_node.DecisionNode` to solve a specific regression problem.
+        Recursively build the decision tree.
 
         Args:
-            vectors(:class:`torch.FloatTensor`): Vectors tensor used to fit the decision tree. It represents the data
-                and must correspond to the following shape (num_vectors, num_dimensions_vectors).
-            values(:class:`torch.FloatTensor`): Values tensor used to fit the decision tree. It represents the values
-                associated to each vectors and must correspond to the following shape (num_vectors,
-                num_dimensions_values).
-            criterion(:class:`function`): Optional function used to optimize the splitting for each
-                :class:`tree_based.decision_node.DecisionNode`. If none given, the variance function is used.
-        """
-        if len(vectors) < 1:
-            raise ValueError("Not enough samples in the given dataset")
-        if len(vectors) != len(values):
-            raise ValueError("Labels and data vectors must have the same number of elements")
-        if not criterion:
-            criterion = variance
-
-        self._root_node = self._build_tree(vectors, values, criterion, self.max_depth)
-
-    def _build_tree(self, vectors, values, func, depth):
-        """
-        Private recursive function used to build the tree.
-        """
-        if len(vectors) == 0:
-            return DecisionNode()
-        if depth == 0:
-            return DecisionNode(results=mean(values))
-
-        current_score = func(values)
-        best_gain = 0.0
-        best_criteria = None
-        best_sets = None
-        column_count = len(vectors[0])
-
-        for col in range(0, column_count):
-            column_values = {}
-            for vector in vectors:
-                column_values[vector[col]] = 1
-            for value in column_values.keys():
-                vectors_set_1, values_set_1, vectors_set_2, values_set_2 = divide_set(vectors, values, col, value)
-
-                p = float(len(vectors_set_1)) / len(vectors)
-                gain = current_score - p * func(values_set_1) - (1 - p) * func(vectors_set_2)
-                if gain > best_gain and len(vectors_set_1) > 0 and len(vectors_set_2) > 0:
-                    best_gain = gain
-                    best_criteria = (col, value)
-                    best_sets = ((vectors_set_1,values_set_1), (vectors_set_2,values_set_2))
-
-        if best_gain > 0:
-            true_branch = self._build_tree(best_sets[0][0], best_sets[0][1], func, depth - 1)
-            false_branch = self._build_tree(best_sets[1][0], best_sets[1][1], func, depth - 1)
-            return DecisionNode(col=best_criteria[0],
-                                value=best_criteria[1],
-                                tb=true_branch, fb=false_branch)
-        else:
-            return DecisionNode(results=mean(values))
-
-    def predict(self, vector):
-        """
-        Function which must be used after the the fitting of the binary tree. It calls recursively the different
-        :class:`tree_based.decision_node.DecisionNode` to regress the vector.
-
-        Args:
-            vector(:class:`torch.FloatTensor`): Vectors tensor which must be regressed. It represents the data
-                and must correspond to the following shape (num_dimensions).
+        - X (Tensor): Input features of shape (num_samples, num_features).
+        - y (Tensor): Target labels of shape (num_samples,).
+        - depth (int): Current depth of the tree.
 
         Returns:
-            :class:`torch.FloatTensor`: Tensor which corresponds to the value regressed by the binary tree.
+        - Node: Root node of the subtree.
+        """
+        num_samples, num_features = X.shape
+        
+        # Check if termination conditions are met
+        if num_samples >= self.min_samples_split and depth <= self.depth:
+            best_split = self._best_split(X, y, num_samples, num_features)
+            if best_split["info_gain"] > 0:
+                # Recursively build left and right subtrees
+                left_tree = self._build_tree(best_split["X_left"], best_split["y_left"], depth + 1)
+                right_tree = self._build_tree(best_split["X_right"], best_split["y_right"], depth + 1)
+                return Node(best_split["feature_index"], best_split["threshold"], left_tree, right_tree)
+        
+        # Create a leaf node if termination conditions are met
+        leaf_value = self._calculate_leaf_value(y)
+        return Node(value=leaf_value)
+    
+    def _best_split(self, X, y, num_samples, num_features):
+        """
+        Find the best split for the current node.
 
-        """
-        return self._regress(vector, self._root_node)
+        Args:
+        - X (Tensor): Input features of shape (num_samples, num_features).
+        - y (Tensor): Target labels of shape (num_samples,).
+        - num_samples (int): Number of samples in the current node.
+        - num_features (int): Number of features.
 
-    def _regress(self, vector, node):
+        Returns:
+        - dict: Dictionary containing information about the best split.
         """
-        Private recursive function used to regress on the tree.
+        best_split = {}
+        max_info_gain = -float("inf")
+        
+        # Iterate over each feature to find the best split
+        for feature_index in range(num_features):
+            feature_values = X[:, feature_index]
+            possible_thresholds = torch.unique(feature_values)
+            for threshold in possible_thresholds:
+                # Split the data based on the current feature and threshold
+                X_left, y_left, X_right, y_right = self._split(X, y, feature_index, threshold)
+                if len(X_left) > 0 and len(X_right) > 0:
+                    # Calculate information gain for the current split
+                    info_gain = self._information_gain(y, y_left, y_right)
+                    if info_gain > max_info_gain:
+                        # Update best split if information gain is greater
+                        best_split["feature_index"] = feature_index
+                        best_split["threshold"] = threshold
+                        best_split["X_left"] = X_left
+                        best_split["y_left"] = y_left
+                        best_split["X_right"] = X_right
+                        best_split["y_right"] = y_right
+                        best_split["info_gain"] = info_gain
+                        max_info_gain = info_gain
+        return best_split
+    
+    def _split(self, X, y, feature_index, threshold):
         """
-        if node.results is not None:
-            return node.results
+        Split the data based on a feature and threshold.
+
+        Args:
+        - X (Tensor): Input features of shape (num_samples, num_features).
+        - y (Tensor): Target labels of shape (num_samples,).
+        - feature_index (int): Index of the feature to split on.
+        - threshold (float): Threshold value for splitting the feature.
+
+        Returns:
+        - tuple: Tuple containing split data (X_left, y_left, X_right, y_right).
+        """
+        left_indices = torch.where(X[:, feature_index] <= threshold)[0]
+        right_indices = torch.where(X[:, feature_index] > threshold)[0]
+        X_left, y_left = X[left_indices], y[left_indices]
+        X_right, y_right = X[right_indices], y[right_indices]
+        return X_left, y_left, X_right, y_right
+    
+    def _information_gain(self, y, y_left, y_right):
+        """
+        Calculate information gain for a split.
+
+        Args:
+        - y (Tensor): Parent node labels.
+        - y_left (Tensor): Left child node labels.
+        - y_right (Tensor): Right child node labels.
+
+        Returns:
+        - float: Information gain.
+        """
+        weight_left = len(y_left) / len(y)
+        weight_right = len(y_right) / len(y)
+        gain = self._entropy(y) - (weight_left * self._entropy(y_left) + weight_right * self._entropy(y_right))
+        return gain
+    
+    def _entropy(self, y):
+        """
+        Calculate entropy of a set of labels.
+
+        Args:
+        - y (Tensor): Labels.
+
+        Returns:
+        - float: Entropy.
+        """
+        class_labels = torch.unique(y)
+        entropy = 0
+        for cls in class_labels:
+            p_cls = len(torch.where(y == cls)[0]) / len(y)
+            if p_cls > 0:
+                entropy += -p_cls * torch.log2(torch.tensor(p_cls, dtype=torch.float32))
+        return entropy
+    
+    def _calculate_leaf_value(self, y):
+        """
+        Calculate the leaf value (most common label) for a leaf node.
+
+        Args:
+        - y (Tensor): Labels.
+
+        Returns:
+        - int: Leaf value.
+        """
+        return torch.mode(y)[0].item()
+    
+    def predict(self, X):
+        """
+        Make predictions using the trained decision tree.
+
+        Args:
+        - X (Tensor): Input features of shape (num_samples, num_features).
+
+        Returns:
+        - List: Predicted labels.
+        """
+        predictions = [self._make_prediction(x, self.tree) for x in X]
+        return predictions
+    
+    def _make_prediction(self, x, tree):
+        """
+        Recursively make predictions using the decision tree.
+
+        Args:
+        - x (Tensor): Input features for a single sample.
+        - tree (Node): Current node of the decision tree.
+
+        Returns:
+        - int: Predicted label.
+        """
+        if tree.value is not None:
+            return tree.value
+        feature_val = x[tree.feature_index]
+        if feature_val <= tree.threshold:
+            return self._make_prediction(x, tree.left)
         else:
-            if split_function(vector, node.col, node.value):
-                branch = node.tb
-            else:
-                branch = node.fb
-
-            return self._regress(vector, branch)
+            return self._make_prediction(x, tree.right)
