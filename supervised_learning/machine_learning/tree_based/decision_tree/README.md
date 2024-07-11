@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```bash
 cd supervised_learning/machine_learning/tree_based/decision_tree
 ```
-Here's a basic example of how to use the Random Forest implementation:
+Here's a basic example of how to use the Decision Tree implementation:
 ```python
 import torch
 from decision_tree import DecisionTree
