@@ -1,8 +1,8 @@
 import torch.nn as nn
 
-class LogisticRegressionModel(nn.Module):
+class LinearRegressionModel(nn.Module):
     """
-    Logistic Regression model implemented using PyTorch.
+    Linear Regression model implemented using PyTorch.
     
     Attributes:
         linear (torch.nn.Linear): Linear transformation layer.
@@ -10,7 +10,7 @@ class LogisticRegressionModel(nn.Module):
     
     def __init__(self):
         """
-        Initialize the Logistic Regression model.
+        Initialize the Linear Regression model.
         
         Defines a linear layer with 1 input feature and 1 output feature.
         """
