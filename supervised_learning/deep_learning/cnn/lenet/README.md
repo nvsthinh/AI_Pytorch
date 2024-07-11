@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ### 3.2. Example
 ```bash
-cd supervised_learning/deep_learning/lenet
+cd supervised_learning/deep_learning/cnn/lenet
 ```
 Here's a basic example of how to use the Linear Regression implementation:
 ```python
