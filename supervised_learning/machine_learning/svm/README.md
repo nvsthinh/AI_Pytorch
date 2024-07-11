@@ -80,7 +80,6 @@ svm/
 ├── svm.py
 ├── notebook/
 │   └── SVM_with_PyTorch_on_Sample.ipynb
-├── requirements.txt
 └── README.md
 ```
 ## 5. License
