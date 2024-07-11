@@ -30,7 +30,7 @@ cd supervised_learning/machine_learning/knn
 Here's a basic example of how to use the K Nearest Neighbors implementation:
 ```python
 import torch
-from knn import KNN
+from knn import KNNClassifier
 
 # Sample data
 X_train = torch.tensor([[1.0], [2.0], [3.0], [4.0], [5.0]])
@@ -41,9 +41,12 @@ X_test = torch.tensor([[1.5], [3.5]])
 k = 3
 knn_model = KNNClassifier(k)
 
+# Fit model
+knn_model.fit(X_train, y_train)
+
 # Making predictions
-predictions = knn_model.predict(X_train, y_train, X_test)
-print(predictions)
+predictions = knn_model.predict(X_test)
+print(predictions) # Output: tensor([0, 1])
 ```
 ### 3.3. Jupyter Notebook
 For a more interactive demonstration, you can open the Jupyter notebook: [K_Nearest_Neighbors_with_PyTorch_on_MNIST.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/machine_learning/knn/notebook/K_Nearest_Neighbors_with_PyTorch_on_MNIST.ipynb)
