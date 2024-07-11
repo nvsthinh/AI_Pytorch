@@ -1,14 +1,14 @@
-# AlexNet
+# GoogleNet
 
 ## 1. Overview
-AlexNet is a convolutional neural network architecture that won the ImageNet Large Scale Visual Recognition Challenge in 2012. Designed by Alex Krizhevsky et al., AlexNet introduced the use of ReLU activation, dropout, and data augmentation, significantly improving the performance of deep learning models on image classification tasks.
+GoogleNet, also known as Inception V1, is a convolutional neural network architecture that won the ImageNet Large Scale Visual Recognition Challenge in 2014. Designed by researchers at Google, GoogleNet introduced the concept of the Inception module, which allows for more efficient computation by using different filter sizes within the same module. This architecture significantly reduced the number of parameters compared to previous networks, improving both computational efficiency and performance.
 
 ## 2. Implementation
-This implementation of AlexNet uses PyTorch to build and train the neural network.
+This implementation of GoogleNet uses PyTorch to build and train the neural network.
 
 ### 2.1. Files
-- `alexnet.py`: Contains the PyTorch implementation of AlexNet.
-- `notebook/AlexNet_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the AlexNet implementation with detailed explanations and visualizations.
+- `googlenet.py`: Contains the PyTorch implementation of GoogleNet.
+- `notebook/GoogleNet_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the GoogleNet implementation with detailed explanations and visualizations. (Not yet implement)
 
 ## 3. How to Use
 ### 3.1. Running the Code
@@ -25,20 +25,20 @@ pip install -r requirements.txt
 
 ### 3.2. Example
 ```bash
-cd supervised_learning/deep_learning/cnn/alexnet
+cd supervised_learning/deep_learning/cnn/googlenet
 ```
-Here's a basic example of how to use the AlexNet implementation:
+Here's a basic example of how to use the GoogleNet implementation:
 ```python
 import torch
 import torch.nn.functional as F
-from alexnet import AlexNet
+from googlenet import GoogleNet
 
 # Sample data (e.g., 3x224x224 color images, similar to ImageNet dimensions)
 sample_data = torch.randn(5, 3, 224, 224)  # batch of 5 images
 
 # Model initialization
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = AlexNet(num_classes=10).to(device)
+model = GoogleNet(num_classes=10).to(device)
 
 # Making predictions
 model.eval()
@@ -49,15 +49,15 @@ print(f"Output shape: {output.shape}")
 # Output: Output shape: torch.Size([5, 10])
 ```
 ## 3.3. Jupyter Notebook
-For a more interactive demonstration, you can open the Jupyter notebook: [AlexNet_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/alexnet/notebook/AlexNet_Model_with_PyTorch_on_CIFAR10.ipynb)
+For a more interactive demonstration, you can open the Jupyter notebook: [GoogleNet_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
 
 ## 4. Directory Structure
 The directory structure for this repository should be organized as follows:
 ```csharp
-alexnet/
-├── alexnet.py
+googlenet/
+├── googlenet.py
 ├── notebook/
-│   └── AlexNet_Model_with_PyTorch_on_CIFAR10.ipynb
+│   └── GoogleNet_Model_with_PyTorch_on_CIFAR10.ipynb
 └── README.md
 ```
 

@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ```bash
 cd supervised_learning/deep_learning/cnn/vgg
 ```
-Here's a basic example of how to use the Linear Regression implementation:
+Here's a basic example of how to use the VGG implementation:
 ```python
 import torch
 import torch.nn.functional as F
