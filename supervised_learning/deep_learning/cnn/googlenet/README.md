@@ -31,14 +31,14 @@ Here's a basic example of how to use the GoogleNet implementation:
 ```python
 import torch
 import torch.nn.functional as F
-from googlenet import GoogleNet
+from googlenet import GoogLeNet
 
 # Sample data (e.g., 3x224x224 color images, similar to ImageNet dimensions)
 sample_data = torch.randn(5, 3, 224, 224)  # batch of 5 images
 
 # Model initialization
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = GoogleNet(num_classes=10).to(device)
+model = GoogLeNet(num_classes=10).to(device)
 
 # Making predictions
 model.eval()
