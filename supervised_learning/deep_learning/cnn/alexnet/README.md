@@ -38,15 +38,15 @@ sample_data = torch.randn(5, 3, 224, 224)  # batch of 5 images
 
 # Model initialization
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = AlexNet().to(device)
+model = AlexNet(num_classes=10).to(device)
 
 # Making predictions
 model.eval()
 with torch.no_grad():
     sample_data = sample_data.to(device)
     output = model(sample_data)
-    pred = output.argmax(dim=1, keepdim=True)
-    print(f'Predicted: {pred.view(-1).tolist()}')
+print(f"Output shape: {output.shape}")
+# Output: Output shape: torch.Size([5, 10])
 ```
 ## 3.3. Jupyter Notebook
 For a more interactive demonstration, you can open the Jupyter notebook: [AlexNet_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/alexnet/notebook/AlexNet_Model_with_PyTorch_on_CIFAR10.ipynb)
