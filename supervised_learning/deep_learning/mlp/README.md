@@ -31,7 +31,7 @@ Here's a basic example of how to use the Linear Regression implementation:
 ```python
 import torch
 import torch.nn.functional as F
-from mlp import MLP
+from mlp import MLPModel
 
 # Sample data (e.g., 28x28 grayscale images, similar to MNIST dimensions)
 sample_data = torch.randn(5, 784)  # batch of 5 flattened images
