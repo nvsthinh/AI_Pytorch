@@ -33,7 +33,7 @@ pip install -r requirements.txt
 ```bash
 cd supervised_learning/deep_learning/cnn/resnet
 ```
-Here's a basic example of how to use the GoogleNet implementation:
+Here's a basic example of how to use the ResNet implementation:
 ```python
 import torch
 import torch.nn.functional as F
