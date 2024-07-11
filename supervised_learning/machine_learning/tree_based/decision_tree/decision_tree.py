@@ -21,10 +21,20 @@ class Node:
         self.right = right
         self.value = value
 
-"""
-Implementation for Decision Tree model
-"""
 class DecisionTree:
+    """
+    Decision Tree model implemented using PyTorch.
+
+    Attributes:
+    - depth (int): Maximum depth of the tree.
+    - min_samples_split (int): Minimum number of samples required to split a node.
+    - tree (Node): Root node of the decision tree.
+
+    Methods:
+    - fit(X, y): Build the decision tree recursively using input features X and target labels y.
+    - predict(X): Make predictions using the trained decision tree on input features X.
+    """
+
     def __init__(self, depth=10, min_samples_split=2):
         """
         Initialize the Decision Tree model.
@@ -35,8 +45,8 @@ class DecisionTree:
         """
         self.depth = depth
         self.min_samples_split = min_samples_split
-        self.tree = {}  # Initialize an empty dictionary to store the decision tree structure
-
+        self.tree = None  # Initialize the root of the decision tree
+    
     def fit(self, X, y):
         """
         Build the decision tree recursively.
