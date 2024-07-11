@@ -58,7 +58,6 @@ logistic_regression/
 ├── logistic_regression.py
 ├── notebook/
 │   └── Logistic_Regression_Model_with_PyTorch_on_MNIST.ipynb
-├── requirements.txt
 └── README.md
 ```
 ## 5. License
