@@ -49,7 +49,7 @@ X_train = torch.tensor([
 y_train = torch.tensor([0, 0, 0, 0, 0, 1, 1, 1, 1, 1])  # Example labels (0 or 1)
 
 # Model initialization
-model = RandomForest(n_estimators=10, max_depth=3, min_samples_split=2)
+model = RandomForest(n_trees=10, depth=3, min_samples_split=2)
 model.fit(X_train, y_train)
 
 # Making predictions
