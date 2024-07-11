@@ -58,7 +58,6 @@ linear_regression/
 ├── linear_regression.py
 ├── notebook/
 │   └── Linear_Regression_with_PyTorch_on_Sample.ipynb
-├── requirements.txt
 └── README.md
 ```
 ## 5. License
