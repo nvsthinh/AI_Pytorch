@@ -62,7 +62,6 @@ softmax_regression/
 ├── softmax_regression.py
 ├── notebook/
 │   └── Softmax_Regression_Model_with_PyTorch_on_MNIST.ipynb
-├── requirements.txt
 └── README.md
 ```
 
