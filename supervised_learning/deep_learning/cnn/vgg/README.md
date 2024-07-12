@@ -11,8 +11,8 @@ This implementation of the VGG models (VGG11, VGG16, and VGG19) uses PyTorch to 
 - `vgg16.py`: Contains the PyTorch implementation of VGG16.
 - `vgg19.py`: Contains the PyTorch implementation of VGG19.
 - `notebook/VGG11_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the VGG11 implementation with detailed explanations and visualizations.
-- `notebook/VGG16_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the VGG16 implementation with detailed explanations and visualizations. (Not yet implement)
-- `notebook/VGG19_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the VGG19 implementation with detailed explanations and visualizations. (Not yet implement)
+- `notebook/VGG16_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the VGG16 implementation with detailed explanations and visualizations.
+- `notebook/VGG19_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the VGG19 implementation with detailed explanations and visualizations.
 
 ## 3. How to Use
 ### 3.1. Running the Code
@@ -57,8 +57,8 @@ print(f"Output shape: {output.shape}")
 ## 3.3. Jupyter Notebook
 For a more interactive demonstration, you can open the Jupyter notebook: 
 - [VGG11_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/vgg/notebook/VGG11_Model_with_PyTorch_on_CIFAR10.ipynb)
-- [VGG16_Model_with_PyTorch_on_CIFAR10.ipynb]()
-- [VGG19_Model_with_PyTorch_on_CIFAR10.ipynb]()
+- [VGG16_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/vgg/notebook/VGG16_Model_with_PyTorch_on_CIFAR10.ipynb)
+- [VGG19_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/vgg/notebook/VGG19_Model_with_PyTorch_on_CIFAR10.ipynb)
 
 ## 4. Directory Structure
 The directory structure for this repository should be organized as follows:
@@ -69,8 +69,8 @@ vgg/
 ├── vgg19.py
 ├── notebook/
 │   ├── VGG11_Model_with_PyTorch_on_CIFAR10.ipynb
-│   ├── VGG16_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
-│   └── VGG19_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
+│   ├── VGG16_Model_with_PyTorch_on_CIFAR10.ipynb
+│   └── VGG19_Model_with_PyTorch_on_CIFAR10.ipynb
 └── README.md
 ```
 
