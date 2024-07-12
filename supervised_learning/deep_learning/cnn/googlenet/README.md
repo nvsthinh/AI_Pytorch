@@ -8,7 +8,7 @@ This implementation of GoogleNet uses PyTorch to build and train the neural netw
 
 ### 2.1. Files
 - `googlenet.py`: Contains the PyTorch implementation of GoogleNet.
-- `notebook/GoogleNet_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the GoogleNet implementation with detailed explanations and visualizations. (Not yet implement)
+- `notebook/GoogleNet_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the GoogleNet implementation with detailed explanations and visualizations.
 
 ## 3. How to Use
 ### 3.1. Running the Code
@@ -49,7 +49,7 @@ print(f"Output shape: {output.shape}")
 # Output: Output shape: torch.Size([5, 10])
 ```
 ## 3.3. Jupyter Notebook
-For a more interactive demonstration, you can open the Jupyter notebook: [GoogleNet_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
+For a more interactive demonstration, you can open the Jupyter notebook: [GoogleNet_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/googlenet/notebook/GoogLeNet_Model_with_PyTorch_on_CIFAR10.ipynb)
 
 ## 4. Directory Structure
 The directory structure for this repository should be organized as follows:
