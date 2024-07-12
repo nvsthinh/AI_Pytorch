@@ -1,5 +1,6 @@
 import torch.nn as nn
 import torch
+import torch.nn.functional as F
 
 # Define the Bottleneck Block for ResNet
 class Bottleneck(nn.Module):
