@@ -11,10 +11,10 @@ This implementation of the ResNet models (ResNet18, ResNet34, ResNet50, and ResN
 - `resnet34.py`: Contains the PyTorch implementation of ResNet34.
 - `resnet50.py`: Contains the PyTorch implementation of ResNet50.
 - `resnet101.py`: Contains the PyTorch implementation of ResNet101.
-- `notebook/ResNet18_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the ResNet18 implementation with detailed explanations and visualizations. (Not yet implement)
-- `notebook/ResNet34_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the ResNet34 implementation with detailed explanations and visualizations. (Not yet implement)
-- `notebook/ResNet50_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the ResNet50 implementation with detailed explanations and visualizations. (Not yet implement)
-- `notebook/ResNet101_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the ResNet101 implementation with detailed explanations and visualizations. (Not yet implement)
+- `notebook/ResNet18_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the ResNet18 implementation with detailed explanations and visualizations.
+- `notebook/ResNet34_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the ResNet34 implementation with detailed explanations and visualizations.
+- `notebook/ResNet50_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the ResNet50 implementation with detailed explanations and visualizations.
+- `notebook/ResNet101_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the ResNet101 implementation with detailed explanations and visualizations.
 
 ## 3. How to Use
 ### 3.1. Running the Code
@@ -59,10 +59,10 @@ print(f"Output shape: {output.shape}")
 ```
 ## 3.3. Jupyter Notebook
 For a more interactive demonstration, you can open the Jupyter notebook: 
-- [ResNet18_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
-- [ResNet34_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
-- [ResNet50_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
-- [ResNet101_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
+- [ResNet18_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/resnet/notebook/ResNet18_Model_with_PyTorch_on_CIFAR10.ipynb)
+- [ResNet34_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/resnet/notebook/ResNet34_Model_with_PyTorch_on_CIFAR10.ipynb)
+- [ResNet50_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/resnet/notebook/ResNet50_Model_with_PyTorch_on_CIFAR10.ipynb)
+- [ResNet101_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/resnet/notebook/ResNet101_Model_with_PyTorch_on_CIFAR10.ipynb)
 
 ## 4. Directory Structure
 The directory structure for this repository should be organized as follows:
@@ -73,10 +73,10 @@ resnet/
 ├── resnet50.py
 ├── resnet101.py
 ├── notebook/
-│   ├── ResNet18_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
-│   ├── ResNet34_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
-│   ├── ResNet50_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
-│   └── ResNet101_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
+│   ├── ResNet18_Model_with_PyTorch_on_CIFAR10.ipynb
+│   ├── ResNet34_Model_with_PyTorch_on_CIFAR10.ipynb
+│   ├── ResNet50_Model_with_PyTorch_on_CIFAR10.ipynb
+│   └── ResNet101_Model_with_PyTorch_on_CIFAR10.ipynb
 └── README.md
 ```
 
