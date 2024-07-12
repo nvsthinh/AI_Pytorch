@@ -4,10 +4,10 @@
 AdaBoost, short for Adaptive Boosting, is an ensemble learning method that combines the predictions of multiple weak classifiers to produce a strong classifier. It is primarily used for classification tasks. The core idea of AdaBoost is to iteratively train weak classifiers on the data, each time adjusting the weights of the training samples to focus more on those that were misclassified by previous classifiers. The final prediction is made by a weighted majority vote of the weak classifiers.
 
 ## 2. Implementation
-This implementation of the AdaBoost model is built from scratch using PyTorch.
+This implementation of the AdaBoost model is built from scratch using Numpy.
 
 ### 2.1. Files
-- `adaboost.py`: Contains the PyTorch implementation of the AdaBoost model, including the weak classifier class.
+- `adaboost.py`: Contains the Numpy implementation of the AdaBoost model, including the weak classifier class.
 - `notebook/AdaBoost_Model_with_Numpy_on_Spam.ipynb`: A Jupyter notebook demonstrating the AdaBoost implementation with detailed explanations and visualizations.
 
 ## 3. How to Use
