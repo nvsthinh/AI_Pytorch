@@ -66,11 +66,11 @@ print(f"Output shape: {output.shape}")
 ```
 ## 3.3. Jupyter Notebook
 For a more interactive demonstration, you can open the Jupyter notebook: 
-- [ConvNeXT_tiny_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
-- [ConvNeXT_small_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
-- [ConvNeXT_base_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
-- [ConvNeXT_large_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
-- [ConvNeXT_xlarge_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
+- [ConvNeXT_tiny_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/convnext/notebook/ConvNeXT_tiny_Model_with_PyTorch_on_CIFAR10.ipynb)
+- [ConvNeXT_small_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/convnext/notebook/ConvNeXT_small_Model_with_PyTorch_on_CIFAR10.ipynb)
+- [ConvNeXT_base_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/convnext/notebook/ConvNeXT_base_Model_with_PyTorch_on_CIFAR10.ipynb)
+- [ConvNeXT_large_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/convnext/notebook/ConvNeXT_large_Model_with_PyTorch_on_CIFAR10.ipynb)
+- [ConvNeXT_xlarge_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/convnext/notebook/ConvNeXT_xlarge_Model_with_PyTorch_on_CIFAR10.ipynb)
 
 ## 4. Directory Structure
 The directory structure for this repository should be organized as follows:
@@ -82,11 +82,11 @@ convnext/
 ├── convnext_large.py
 ├── convnext_xlarge.py
 ├── notebook/
-│   ├── ConvNeXT_tiny_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
-│   ├── ConvNeXT_small_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
-│   ├── ConvNeXT_base_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
-│   ├── ConvNeXT_large_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
-│   └── ConvNeXT_xlarge_Model_with_PyTorch_on_CIFAR10.ipynb (not yet)
+│   ├── ConvNeXT_tiny_Model_with_PyTorch_on_CIFAR10.ipynb
+│   ├── ConvNeXT_small_Model_with_PyTorch_on_CIFAR10.ipynb
+│   ├── ConvNeXT_base_Model_with_PyTorch_on_CIFAR10.ipynb
+│   ├── ConvNeXT_large_Model_with_PyTorch_on_CIFAR10.ipynb
+│   └── ConvNeXT_xlarge_Model_with_PyTorch_on_CIFAR10.ipynb
 └── README.md
 ```
 
