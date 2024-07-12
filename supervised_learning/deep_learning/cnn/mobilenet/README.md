@@ -9,8 +9,8 @@ This implementation of the MobileNet models (MobileNetV1 and MobileNetV2) uses P
 ### 2.1. Files
 - `mobilenetv1.py`: Contains the PyTorch implementation of MobileNetV1.
 - `mobilenetv2.py`: Contains the PyTorch implementation of MobileNetV2.
-- `notebook/MobileNetV1_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the MobileNetV1 implementation with detailed explanations and visualizations. (Not yet implement)
-- `notebook/MobileNetV2_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the MobileNetV2 implementation with detailed explanations and visualizations.(Not yet implement)
+- `notebook/MobileNetV1_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the MobileNetV1 implementation with detailed explanations and visualizations. 
+- `notebook/MobileNetV2_Model_with_PyTorch_on_CIFAR10.ipynb`: A Jupyter notebook demonstrating the MobileNetV2 implementation with detailed explanations and visualizations.
 
 ## 3. How to Use
 ### 3.1. Running the Code
@@ -53,8 +53,8 @@ print(f"Output shape: {output.shape}")
 ```
 ## 3.3. Jupyter Notebook
 For a more interactive demonstration, you can open the Jupyter notebook: 
-- [MobileNetv1_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
-- [MobileNetv2_Model_with_PyTorch_on_CIFAR10.ipynb]() (not yet)
+- [MobileNetv1_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/mobilenet/notebook/MobileNetv1_Model_with_PyTorch_on_CIFAR10.ipynb)
+- [MobileNetv2_Model_with_PyTorch_on_CIFAR10.ipynb](https://github.com/nvsthinh/AI_Pytorch/blob/main/supervised_learning/deep_learning/cnn/mobilenet/notebook/MobileNetv2_Model_with_PyTorch_on_CIFAR10.ipynb)
 
 ## 4. Directory Structure
 The directory structure for this repository should be organized as follows:
